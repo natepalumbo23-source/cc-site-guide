@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ section.title }} · Credit Cowboy Guide{% endblock %}
+{% block body %}
+<div class="app-shell">
+  <div class="section-bar">
+    <a class="back" href="{{ url_for('home') }}" aria-label="Back">←</a>
+    <div class="brand">
+      <img src="{{ url_for('static', filename='img/hat.png') }}" alt="" />
+      <span>Credit Cowboy</span>
+    </div>
+  </div>
+
+  <div class="section-main">
+    <h1 class="serif">{{ section.title }}</h1>
+    <p class="blurb">{{ section.blurb }}</p>
+
+    {% for item in section.placeholder %}
+    <div class="placeholder-card">
+      <span class="tag">Placeholder</span>
+      <p>{{ item }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Get Access · Credit Cowboy{% endblock %}
+{% block body %}
+<div class="app-shell">
+  <div class="topbar">
+    <div class="brand">
+      <img src="{{ url_for('static', filename='img/hat.png') }}" alt="Credit Cowboy" />
+      <span>Credit Cowboy</span>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="pay-hero">
+      <img class="book" src="{{ url_for('static', filename='img/book.png') }}" alt="The Credit Cowboy Guide to Buy Side Interviews" />
+      <h1 class="serif">Get Access to the Guide</h1>
+      <p>{% if first_name %}Nice, {{ first_name }}. {% endif %}Create your account. Payment is mocked for this prototype.</p>
+    </div>
+
+    <form class="pay-card" id="pay_form" autocomplete="on">
+      <label for="pay_email">Email</label>
+      <input id="pay_email" name="email" type="email" required value="{{ prefill_email }}" placeholder="you@school.edu" />
+
+      <label for="pay_password">Password</label>
+      <input id="pay_password" name="password" type="password" required minlength="6" placeholder="At least 6 characters" />
+
+      <p class="error" id="pay_error"></p>
+
+      <button type="submit" class="btn btn-mock">
+        <span class="badge">Test · No Charge</span>
+        Get Access
+      </button>
+    </form>
+
+    <p class="pay-note">
+      Stripe Checkout hooks in later. This button only creates a local test account.
+    </p>
+    <div class="footer-mini">@CreditCowboy</div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/paywall.js') }}"></script>
+{% endblock %}

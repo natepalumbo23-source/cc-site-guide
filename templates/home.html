@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Home · Credit Cowboy Guide{% endblock %}
+{% block body %}
+<div class="app-shell">
+  <div class="topbar">
+    <div class="brand">
+      <img src="{{ url_for('static', filename='img/hat.png') }}" alt="Credit Cowboy" />
+      <span>Credit Cowboy</span>
+    </div>
+    <a class="ghost" href="{{ url_for('logout') }}">Log out</a>
+  </div>
+
+  <div class="main">
+    <div class="home-head">
+      <h1 class="serif">{% if name %}Hey {{ name }}.{% else %}You're In.{% endif %}</h1>
+      <p>Pick a section. Content inside is still placeholder.</p>
+    </div>
+
+    <div class="grid">
+      <a class="tile" href="{{ url_for('section', slug='qas') }}">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8 10h8M8 14h5"/><path d="M7 4h10a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H11l-4 3v-3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"/></svg>
+        </div>
+        <div>
+          <h2>Q&As</h2>
+          <span>Open</span>
+        </div>
+      </a>
+
+      <a class="tile" href="{{ url_for('section', slug='paper-lbo') }}">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 16V10"/><path d="M12 16V7"/><path d="M16 16v-4"/></svg>
+        </div>
+        <div>
+          <h2>Paper LBO</h2>
+          <span>Open</span>
+        </div>
+      </a>
+
+      <a class="tile" href="{{ url_for('section', slug='model-tests') }}">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+        </div>
+        <div>
+          <h2>Model Tests</h2>
+          <span>Open</span>
+        </div>
+      </a>
+
+      <a class="tile" href="{{ url_for('section', slug='resume-builder') }}">
+        <div class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8 7h8M8 11h8M8 15h5"/><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/></svg>
+        </div>
+        <div>
+          <h2>Resume Builder</h2>
+          <span>Open</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="footer-mini">The Credit Cowboy Guide</div>
+  </div>
+</div>
+{% endblock %}

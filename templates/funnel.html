@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}Get the Guide · Credit Cowboy{% endblock %}
+{% block body %}
+<div class="app-shell">
+  <div class="topbar">
+    <div class="brand">
+      <img src="{{ url_for('static', filename='img/hat.png') }}" alt="Credit Cowboy" />
+      <span>Credit Cowboy</span>
+    </div>
+  </div>
+
+  <div class="main with-bar" id="funnel">
+    <section class="step active" data-step="0">
+      <div class="step-copy">
+      <p class="kicker">Let&rsquo;s Start</p>
+      <h1 class="question serif">What<span class="apos">&rsquo;</span>s Your First Name?</h1>
+      <p class="hint">One question at a time. Takes under a minute.</p>
+      </div>
+      <div class="step-visual" aria-hidden="true">
+        <img class="guide-peek" src="{{ url_for('static', filename='img/book.png') }}" alt="" />
+      </div>
+      <div class="field">
+        <input id="first_name" name="first_name" autocomplete="given-name" placeholder="First name" />
+        <button class="btn btn-primary" data-next data-require="#first_name">Next</button>
+      </div>
+    </section>
+
+    <section class="step" data-step="1">
+      <div class="step-copy">
+      <p class="kicker">Contact</p>
+      <h1 class="question serif">What<span class="apos">&rsquo;</span>s Your Email?</h1>
+      <p class="hint">We&rsquo;ll use this for your account.</p>
+      </div>
+      <div class="step-visual" aria-hidden="true">
+        <img class="guide-peek" src="{{ url_for('static', filename='img/book.png') }}" alt="" />
+      </div>
+      <div class="field">
+        <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@school.edu" />
+        <button class="btn btn-primary" data-next data-require="#email">Next</button>
+      </div>
+    </section>
+
+    <section class="step" data-step="2">
+      <div class="step-copy">
+      <p class="kicker">Contact</p>
+      <h1 class="question serif">Phone Number?</h1>
+      <p class="hint">Skip if you&rsquo;d rather not share it.</p>
+      </div>
+      <div class="step-visual" aria-hidden="true">
+        <img class="guide-peek" src="{{ url_for('static', filename='img/book.png') }}" alt="" />
+      </div>
+      <div class="field">
+        <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(555) 000-0000" />
+        <button class="btn btn-primary" data-next>Next</button>
+        <button class="btn btn-secondary" data-skip>Skip</button>
+      </div>
+    </section>
+
+    <section class="step" data-step="3">
+      <div class="step-copy">
+      <p class="kicker">Your Seat</p>
+      <h1 class="question serif">Where Are You Now?</h1>
+      <p class="hint">Pick the closest fit.</p>
+      </div>
+      <div class="step-visual" aria-hidden="true">
+        <img class="guide-peek" src="{{ url_for('static', filename='img/book.png') }}" alt="" />
+      </div>
+      <div class="choices" data-key="where_now">
+        <button class="choice" data-value="Student">Student</button>
+        <button class="choice" data-value="Analyst">Analyst</button>
+        <button class="choice" data-value="Associate+">Associate+</button>
+        <button class="choice" data-value="Career switcher">Career Switcher</button>
+      </div>
+    </section>
+
+    <section class="step" data-step="4">
+      <div class="step-copy">
+      <p class="kicker" id="detail_kicker">Background</p>
+      <h1 class="question serif" id="detail_question">School or Title?</h1>
+      <p class="hint" id="detail_hint">One line is enough.</p>
+      </div>
+      <div class="step-visual" aria-hidden="true">
+        <img class="guide-peek" src="{{ url_for('static', filename='img/book.png') }}" alt="" />
+      </div>
+      <div class="field">
+        <input id="school_or_title" name="school_or_title" autocomplete="organization-title" placeholder="School or job title" />
+        <button class="btn btn-primary" data-next data-require="#school_or_title">Next</button>
+      </div>
+    </section>
+
+    <section class="step" data-step="5">
+      <div class="step-copy">
+      <p class="kicker">Last One</p>
+      <h1 class="question serif">How Did You Hear About Us?</h1>
+      <p class="hint">Helps us know what&rsquo;s working.</p>
+      </div>
+      <div class="step-visual" aria-hidden="true">
+        <img class="guide-peek" src="{{ url_for('static', filename='img/book.png') }}" alt="" />
+      </div>
+      <div class="choices" data-key="hear_about">
+        <button class="choice" data-value="Instagram">Instagram</button>
+        <button class="choice" data-value="Friend or Colleague">Friend or Colleague</button>
+        <button class="choice" data-value="TikTok">TikTok</button>
+        <button class="choice" data-value="LinkedIn">LinkedIn</button>
+        <button class="choice" data-value="Other">Other</button>
+      </div>
+    </section>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-meta">
+      <span id="progress_label">Step 1 of 6</span>
+      <span class="progress-book" aria-hidden="true" title="Guide">
+        <svg viewBox="0 0 24 24" width="18" height="18">
+          <path d="M5 4.5h9.5A2.5 2.5 0 0 1 17 7v12.2c0-.8-.7-1.5-1.5-1.5H5A2 2 0 0 1 3 15.7V6.5A2 2 0 0 1 5 4.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          <path d="M17 7h2a2 2 0 0 1 2 2v9.2a1.5 1.5 0 0 0-1.5-1.5H17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+          <path d="M7.5 8.5h6M7.5 11.5h6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progress_fill"></div></div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/funnel.js') }}"></script>
+{% endblock %}
